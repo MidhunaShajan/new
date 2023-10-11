@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body style="background-color:#D5DBDB;">
+<form action="reg" method="POST">
+    {% csrf_token %}
+    <h2>Register</h2>
+
+    {{ form.as_p }}
+    <a href="login"><button type="submit">Register</button></a>
+</form>
+
+{% for msg in messages %}
+<h3>{{msg}}</h3>
+{% endfor %}
+
+</body>
+</html>

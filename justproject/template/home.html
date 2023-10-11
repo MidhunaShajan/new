@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body style="background-color:#D5DBDB;">
+<ul>
+    <li><a href="login">Login</a></li>
+
+    <li><a href="reg">Register</a></li>
+    <li>
+        <a href="">Department</a>
+        <ul class="dropdown">
+            <li><a href="https://en.wikipedia.org/wiki/Commerce">Commerce</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/English_literature">English literature</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Computer_science">Computer science</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Biology">Biology science</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Humanities">Humanities</a></li>
+
+        </ul>
+    </li>
+    {% if user.is_authenticated %}
+    <li style="color:white;padding:10px 30px;">Hey {{user.username}}--></li>
+    <li><a href="logout" style="padding: 10px;">Logout</a></li>
+    {% endif %}
+</ul>
+<h2 style="color:red;padding:15px 30px;font-family:verdana;"><u>Our mission</u></h2>
+<h3><p  style="padding:5px 30px;">To foster a supportive learning environment that provides multiple entry points to learning and accessibility to resources.<br> We seek to educate the whole child with an emphasis on equitable learning opportunities that foster academic, social, and emotional growth.<br> We aim to develop curious and enthusiastic scholars and equip them with the tools needed to thrive as independent, successful, and responsible citizens of society.</p></h3>
+<img src="https://www.sedentarybehaviour.org/wp-content/uploads/2022/03/pexels-max-fischer-5212329-scaled.jpg" style="width:18rem;padding:10px 500px;">
+</body>
+</html>

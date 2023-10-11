@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:#D5DBDB;">
+<h2 style="padding:0px 500px;"><u>Register</u></h2>
+<form method="post" style="padding:0px 500px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+<!--{% for msg in messages %}-->
+<!--<h4>{{msg}}</h4>-->
+<!--{% endfor %}-->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#department-dropdown').change(function () {
+            var departmentId = $(this).val();
+            $.ajax({
+                url: '{% url "get_courses" %}',
+                data: {'department_id': departmentId},
+                success: function (data) {
+                    $('#course-dropdown').html(data);
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
